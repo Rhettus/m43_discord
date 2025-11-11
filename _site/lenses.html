@@ -1,4 +1,3 @@
-<!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,19 +36,53 @@
   <button class="filter-btn active" data-filter="all">All Lenses</button>
   <button class="filter-btn" data-filter="prime">Prime</button>
   <button class="filter-btn" data-filter="zoom">Zoom</button>
-  <button class="filter-btn" data-filter="wide">Wide Angle</button>
-  <button class="filter-btn" data-filter="standard">Standard</button>
-  <button class="filter-btn" data-filter="telephoto">Telephoto</button>
 </div>
 
 <h2 id="all-lenses">All Lenses</h2>
 
 <div class="card-grid">
 
-</div>
+  <div class="card lens-card" data-type="prime">
+    <h3><a href="/lenses/olympus-25mm-f18/">Olympus M.Zuiko 25mm f/1.8</a></h3>
+    
+    <div class="lens-quick-specs">
+      
+      <div><strong>Brand:</strong> Olympus</div>
+      
+      
+      <div><strong>Focal Length:</strong> 25mm</div>
+      
+      
+      <div><strong>Aperture:</strong> f/1.8</div>
+      
+      
+      <div><strong>Type:</strong> Prime</div>
+      
+    </div>
+    
+    
+    <div class="lens-rating">
+      ⭐ 4.5/5
+    </div>
+    
+    
+    
+    <div style="margin-top: 1rem;">
+      
+      <span class="card-tag">portrait</span>
+      
+      <span class="card-tag">street</span>
+      
+      <span class="card-tag">low-light</span>
+      
+    </div>
+    
+    
+    <div style="margin-top: 1rem;">
+      <a href="/lenses/olympus-25mm-f18/" class="btn">View Details</a>
+    </div>
+  </div>
 
-<div style="text-align: center; padding: 3rem; background: white; border-radius: 8px;">
-  <p style="font-size: 1.2rem; color: #666;">No lenses added yet. Check back soon!</p>
 </div>
 
 <h2 id="contribute">Contribute</h2>
@@ -117,13 +150,14 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     this.classList.add('active');
     
-    const filter = this.dataset.filter;
+    const filter = this.dataset.filter.toLowerCase();
     document.querySelectorAll('.lens-card').forEach(card => {
       if (filter === 'all') {
         card.style.display = 'block';
       } else {
-        const cardType = card.dataset.type;
-        if (cardType === filter) {
+        const cardType = card.dataset.type ? card.dataset.type.toLowerCase() : '';
+        // Check if filter matches type or is contained in type
+        if (cardType === filter || cardType.includes(filter)) {
           card.style.display = 'block';
         } else {
           card.style.display = 'none';

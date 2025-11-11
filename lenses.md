@@ -13,9 +13,6 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
   <button class="filter-btn active" data-filter="all">All Lenses</button>
   <button class="filter-btn" data-filter="prime">Prime</button>
   <button class="filter-btn" data-filter="zoom">Zoom</button>
-  <button class="filter-btn" data-filter="wide">Wide Angle</button>
-  <button class="filter-btn" data-filter="standard">Standard</button>
-  <button class="filter-btn" data-filter="telephoto">Telephoto</button>
 </div>
 
 ## All Lenses
@@ -132,13 +129,14 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     this.classList.add('active');
     
-    const filter = this.dataset.filter;
+    const filter = this.dataset.filter.toLowerCase();
     document.querySelectorAll('.lens-card').forEach(card => {
       if (filter === 'all') {
         card.style.display = 'block';
       } else {
-        const cardType = card.dataset.type;
-        if (cardType === filter) {
+        const cardType = card.dataset.type ? card.dataset.type.toLowerCase() : '';
+        // Check if filter matches type or is contained in type
+        if (cardType === filter || cardType.includes(filter)) {
           card.style.display = 'block';
         } else {
           card.style.display = 'none';

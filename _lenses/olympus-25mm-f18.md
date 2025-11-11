@@ -5,7 +5,7 @@ manufacturer: Olympus
 focal_length: 25mm
 aperture: f/1.8
 type: Prime
-price_range: $$$
+price_range: $$
 weight: 137g
 filter_size: 46mm
 tags:
