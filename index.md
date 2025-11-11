@@ -3,9 +3,6 @@ layout: default
 title: Home
 ---
 
-# Welcome to the M43 Reference Hub
-
-Your community-curated guide to the Micro Four Thirds system. Find lens recommendations, YouTube channels, buying guides, and everything you need to make the most of your M43 gear.
 
 ## Quick Links
 
