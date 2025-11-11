@@ -1,0 +1,218 @@
+<!-- _layouts/guide.html -->
+---
+layout: default
+---
+
+<article class="guide-page">
+    <div class="guide-header">
+        <h1>{{ page.title }}</h1>
+        
+        {% if page.author or page.date or page.difficulty %}
+        <div class="guide-meta">
+            {% if page.author %}
+            <span class="meta-item">✍️ {{ page.author }}</span>
+            {% endif %}
+            {% if page.date %}
+            <span class="meta-item">📅 {{ page.date | date: "%B %d, %Y" }}</span>
+            {% endif %}
+            {% if page.difficulty %}
+            <span class="meta-item">📊 {{ page.difficulty }}</span>
+            {% endif %}
+            {% if page.read_time %}
+            <span class="meta-item">⏱️ {{ page.read_time }} min read</span>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        {% if page.tags %}
+        <div class="guide-tags">
+            {% for tag in page.tags %}
+            <span class="card-tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="guide-content">
+        {{ content }}
+    </div>
+
+    {% if page.related_guides %}
+    <div class="related-guides">
+        <h2>Related Guides</h2>
+        <div class="related-grid">
+            {% for related in page.related_guides %}
+            <div class="related-card">
+                <h3>{{ related.title }}</h3>
+                {% if related.url %}
+                <a href="{{ related.url | relative_url }}">Read Guide →</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="back-link" style="margin-top: 3rem;">
+        <a href="{{ '/guides' | relative_url }}">← Back to All Guides</a>
+    </div>
+</article>
+
+<style>
+.guide-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.guide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    color: #666;
+}
+
+.meta-item {
+    font-size: 0.95rem;
+}
+
+.guide-tags {
+    margin-top: 1rem;
+}
+
+.guide-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    line-height: 1.8;
+}
+
+.guide-content h2 {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--primary);
+}
+
+.guide-content h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.guide-content h3 {
+    margin-top: 2rem;
+    color: var(--secondary);
+}
+
+.guide-content ul, .guide-content ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.guide-content li {
+    margin: 0.75rem 0;
+}
+
+.guide-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: var(--light);
+    border-radius: 4px;
+}
+
+.guide-content code {
+    background: var(--light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.guide-content pre {
+    background: var(--dark);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+.guide-content pre code {
+    background: none;
+    padding: 0;
+    color: white;
+}
+
+.guide-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
+
+.related-guides {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.related-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+}
+
+.related-card:hover {
+    border-color: var(--secondary);
+}
+
+.related-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-card a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.related-card a:hover {
+    text-decoration: underline;
+}
+
+.back-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .guide-content {
+        padding: 1.5rem;
+    }
+    
+    .guide-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>

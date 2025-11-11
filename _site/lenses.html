@@ -1,0 +1,150 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M43 Lenses | M43 Discord Reference Hub</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title"><a href="/">M43 Discord Reference Hub</a></h1>
+                <p class="site-description">Micro Four Thirds discord community</p>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/lenses">Lenses</a></li>
+                    <li><a href="/channels">YouTube Channels</a></li>
+                    <li><a href="/guides">Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-content">
+        <div class="container">
+            <h1 id="micro-four-thirds-lens-database">Micro Four Thirds Lens Database</h1>
+
+<p>Browse our comprehensive collection of M43 lenses from all major manufacturers. Find the perfect lens for your photography style.</p>
+
+<h2 id="filter-by-type">Filter by Type</h2>
+
+<div class="filter-tags">
+  <button class="filter-btn active" data-filter="all">All Lenses</button>
+  <button class="filter-btn" data-filter="prime">Prime</button>
+  <button class="filter-btn" data-filter="zoom">Zoom</button>
+  <button class="filter-btn" data-filter="wide">Wide Angle</button>
+  <button class="filter-btn" data-filter="standard">Standard</button>
+  <button class="filter-btn" data-filter="telephoto">Telephoto</button>
+</div>
+
+<h2 id="all-lenses">All Lenses</h2>
+
+<div class="card-grid">
+
+</div>
+
+<div style="text-align: center; padding: 3rem; background: white; border-radius: 8px;">
+  <p style="font-size: 1.2rem; color: #666;">No lenses added yet. Check back soon!</p>
+</div>
+
+<h2 id="contribute">Contribute</h2>
+
+<p>Know a lens that should be on this list? Have sample images or a detailed review to share? Join our Discord and help us build the most comprehensive M43 lens database!</p>
+
+<style>
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border);
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  border-color: var(--secondary);
+  background: var(--secondary);
+  color: white;
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.lens-quick-specs {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--light);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.lens-quick-specs div {
+  margin: 0.5rem 0;
+}
+
+.lens-rating {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.5rem 0;
+}
+</style>
+
+<script>
+// Filter functionality
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.lens-card').forEach(card => {
+      if (filter === 'all') {
+        card.style.display = 'block';
+      } else {
+        const cardType = card.dataset.type;
+        if (cardType === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 M43 Discord Reference Hub | Community-maintained M43 resource</p>
+            
+            <p><a href="https://discord.gg/QnCwEdYbHf" target="_blank">Join our Discord Server</a></p>
+            
+        </div>
+    </footer>
+</body>
+</html>

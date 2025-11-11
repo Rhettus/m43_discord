@@ -1,0 +1,158 @@
+<!-- _layouts/channel.html -->
+---
+layout: default
+---
+
+<article class="channel-page">
+    <div class="channel-header">
+        <h1>{{ page.title }}</h1>
+        <div class="channel-meta">
+            {% if page.subscribers %}
+            <span class="meta-item">👥 {{ page.subscribers }} subscribers</span>
+            {% endif %}
+            {% if page.upload_frequency %}
+            <span class="meta-item">📅 {{ page.upload_frequency }}</span>
+            {% endif %}
+            {% if page.language %}
+            <span class="meta-item">🌐 {{ page.language }}</span>
+            {% endif %}
+        </div>
+        
+        {% if page.tags %}
+        <div class="channel-tags">
+            {% for tag in page.tags %}
+            <span class="card-tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if page.channel_url %}
+        <a href="{{ page.channel_url }}" target="_blank" class="btn" style="margin-top: 1rem;">Visit Channel</a>
+        {% endif %}
+    </div>
+
+    <div class="channel-content">
+        {{ content }}
+    </div>
+
+    {% if page.popular_videos %}
+    <div class="popular-videos">
+        <h2>Popular Videos</h2>
+        <div class="video-grid">
+            {% for video in page.popular_videos %}
+            <div class="video-card">
+                <h3>{{ video.title }}</h3>
+                {% if video.description %}
+                <p>{{ video.description }}</p>
+                {% endif %}
+                {% if video.url %}
+                <a href="{{ video.url }}" target="_blank" class="video-link">Watch Video →</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="back-link" style="margin-top: 3rem;">
+        <a href="{{ '/channels' | relative_url }}">← Back to All Channels</a>
+    </div>
+</article>
+
+<style>
+.channel-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.channel-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    color: #666;
+}
+
+.meta-item {
+    font-size: 0.95rem;
+}
+
+.channel-tags {
+    margin-top: 1rem;
+}
+
+.channel-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.channel-content h2 {
+    margin-top: 2rem;
+}
+
+.channel-content h2:first-child {
+    margin-top: 0;
+}
+
+.popular-videos {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.video-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+}
+
+.video-card:hover {
+    border-color: var(--secondary);
+}
+
+.video-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.video-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.video-link:hover {
+    text-decoration: underline;
+}
+
+.back-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+</style>

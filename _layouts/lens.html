@@ -1,0 +1,173 @@
+<!-- _layouts/lens.html -->
+---
+layout: default
+---
+
+<article class="lens-page">
+    <div class="lens-header">
+        <h1>{{ page.title }}</h1>
+        
+        <div class="lens-specs">
+            {% if page.manufacturer %}
+            <div class="spec-item">
+                <span class="spec-label">Manufacturer</span>
+                <span class="spec-value">{{ page.manufacturer }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.focal_length %}
+            <div class="spec-item">
+                <span class="spec-label">Focal Length</span>
+                <span class="spec-value">{{ page.focal_length }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.aperture %}
+            <div class="spec-item">
+                <span class="spec-label">Max Aperture</span>
+                <span class="spec-value">{{ page.aperture }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.type %}
+            <div class="spec-item">
+                <span class="spec-label">Type</span>
+                <span class="spec-value">{{ page.type }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.weight %}
+            <div class="spec-item">
+                <span class="spec-label">Weight</span>
+                <span class="spec-value">{{ page.weight }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.filter_size %}
+            <div class="spec-item">
+                <span class="spec-label">Filter Size</span>
+                <span class="spec-value">{{ page.filter_size }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.price_range %}
+            <div class="spec-item">
+                <span class="spec-label">Price Range</span>
+                <span class="spec-value">{{ page.price_range }}</span>
+            </div>
+            {% endif %}
+            
+            {% if page.rating %}
+            <div class="spec-item">
+                <span class="spec-label">Community Rating</span>
+                <span class="spec-value">⭐ {{ page.rating }}/5</span>
+            </div>
+            {% endif %}
+        </div>
+        
+        {% if page.tags %}
+        <div class="lens-tags">
+            {% for tag in page.tags %}
+            <span class="card-tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="lens-content">
+        {{ content }}
+    </div>
+
+    <div class="back-link" style="margin-top: 3rem;">
+        <a href="{{ '/lenses' | relative_url }}">← Back to All Lenses</a>
+    </div>
+</article>
+
+<style>
+.lens-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.lens-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 6px;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.spec-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.spec-value {
+    font-size: 1.1rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.lens-tags {
+    margin-top: 1.5rem;
+}
+
+.lens-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.lens-content h2 {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.lens-content h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.lens-content ul, .lens-content ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.lens-content li {
+    margin: 0.5rem 0;
+}
+
+.lens-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #555;
+}
+
+.back-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+</style>

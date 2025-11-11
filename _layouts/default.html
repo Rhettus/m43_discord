@@ -1,0 +1,43 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <p class="site-description">{{ site.description }}</p>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/lenses' | relative_url }}">Lenses</a></li>
+                    <li><a href="{{ '/channels' | relative_url }}">YouTube Channels</a></li>
+                    <li><a href="{{ '/guides' | relative_url }}">Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-content">
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} | Community-maintained M43 resource</p>
+            {% if site.discord_url %}
+            <p><a href="{{ site.discord_url }}" target="_blank">Join our Discord Server</a></p>
+            {% endif %}
+        </div>
+    </footer>
+</body>
+</html>

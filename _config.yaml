@@ -1,0 +1,48 @@
+# _config.yml
+title: M43 Discord Reference Hub
+description: Micro Four Thirds discord community 
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+
+# Collections for organizing content
+collections:
+  lenses:
+    output: true
+    permalink: /lenses/:name/
+  channels:
+    output: true
+    permalink: /channels/:name/
+  guides:
+    output: true
+    permalink: /guides/:name/
+
+# Navigation
+header_pages:
+  - lenses.md
+  - channels.md
+  - guides.md
+  - about.md
+
+# Social links (optional)
+discord_url: "https://discord.gg/QnCwEdYbHf"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "lenses"
+    values:
+      layout: "lens"
+  - scope:
+      path: ""
+      type: "channels"
+    values:
+      layout: "channel"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
