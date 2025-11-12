@@ -15,6 +15,8 @@ tags:
   - pro
   - everyday
 rating: 4.7
+magnification: 0.25x
+autofocus: Yes
 ---
 
 ## Overview

@@ -15,6 +15,8 @@ tags:
   - pro
   - image-stabilization
 rating: 4.9
+magnification: 0.3x
+autofocus: Yes
 ---
 
 ## Overview

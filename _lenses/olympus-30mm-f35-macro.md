@@ -14,6 +14,8 @@ tags:
   - budget
   - specialty
 rating: 4.3
+magnification: 1.25x
+autofocus: Yes
 ---
 
 ## Overview

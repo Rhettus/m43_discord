@@ -15,6 +15,8 @@ tags:
   - low-light
   - classic
 rating: 4.5
+magnification: 0.13x
+autofocus: Yes
 ---
 
 ## Overview

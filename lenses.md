@@ -17,45 +17,37 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
 
 ## All Lenses
 
-<div class="card-grid">
+<div class="lens-table-container">
+  <table id="lensTable" class="lens-table">
+    <thead>
+      <tr>
+        <th data-sort="title">Lens Name <span class="sort-arrow">↕</span></th>
+        <th data-sort="manufacturer">Manufacturer <span class="sort-arrow">↕</span></th>
+        <th data-sort="focal_length">Focal Length <span class="sort-arrow">↕</span></th>
+        <th data-sort="aperture">Max Aperture <span class="sort-arrow">↕</span></th>
+        <th data-sort="type">Type <span class="sort-arrow">↕</span></th>
+        <th data-sort="weight">Weight <span class="sort-arrow">↕</span></th>
+        <th data-sort="price_range">Price <span class="sort-arrow">↕</span></th>
+        <th data-sort="magnification">Magnification <span class="sort-arrow">↕</span></th>
+        <th data-sort="autofocus">Auto Focus <span class="sort-arrow">↕</span></th>
+      </tr>
+    </thead>
+    <tbody>
 {% for lens in site.lenses %}
-  <div class="card lens-card" data-type="{{ lens.type | downcase }}">
-    <h3><a href="{{ lens.url | relative_url }}">{{ lens.title }}</a></h3>
-    
-    <div class="lens-quick-specs">
-      {% if lens.manufacturer %}
-      <div><strong>Brand:</strong> {{ lens.manufacturer }}</div>
-      {% endif %}
-      {% if lens.focal_length %}
-      <div><strong>Focal Length:</strong> {{ lens.focal_length }}</div>
-      {% endif %}
-      {% if lens.aperture %}
-      <div><strong>Aperture:</strong> {{ lens.aperture }}</div>
-      {% endif %}
-      {% if lens.type %}
-      <div><strong>Type:</strong> {{ lens.type }}</div>
-      {% endif %}
-    </div>
-    
-    {% if lens.rating %}
-    <div class="lens-rating">
-      ⭐ {{ lens.rating }}/5
-    </div>
-    {% endif %}
-    
-    {% if lens.tags %}
-    <div style="margin-top: 1rem;">
-      {% for tag in lens.tags %}
-      <span class="card-tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-    {% endif %}
-    
-    <div style="margin-top: 1rem;">
-      <a href="{{ lens.url | relative_url }}" class="btn">View Details</a>
-    </div>
-  </div>
+      <tr class="lens-row" data-type="{{ lens.type | downcase }}">
+        <td class="lens-name"><a href="{{ lens.url | relative_url }}">{{ lens.title }}</a></td>
+        <td>{{ lens.manufacturer | default: "—" }}</td>
+        <td data-value="{{ lens.focal_length }}">{{ lens.focal_length | default: "—" }}</td>
+        <td data-value="{{ lens.aperture }}">{{ lens.aperture | default: "—" }}</td>
+        <td>{{ lens.type | default: "—" }}</td>
+        <td data-value="{{ lens.weight }}">{{ lens.weight | default: "—" }}</td>
+        <td>{{ lens.price_range | default: "—" }}</td>
+        <td>{{ lens.magnification | default: "—" }}</td>
+        <td>{{ lens.autofocus | default: "Yes" }}</td>
+      </tr>
 {% endfor %}
+    </tbody>
+  </table>
 </div>
 
 {% if site.lenses.size == 0 %}
@@ -102,47 +94,208 @@ Know a lens that should be on this list? Have sample images or a detailed review
   color: white;
 }
 
-.lens-quick-specs {
-  margin: 1rem 0;
+.lens-table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.lens-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.lens-table thead {
+  background: var(--primary);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.lens-table th {
   padding: 1rem;
-  background: var(--light);
-  border-radius: 6px;
-  font-size: 0.9rem;
-}
-
-.lens-quick-specs div {
-  margin: 0.5rem 0;
-}
-
-.lens-rating {
-  font-size: 1.1rem;
+  text-align: left;
   font-weight: 600;
-  color: var(--accent);
-  margin: 0.5rem 0;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  border-bottom: none;
+}
+
+.lens-table th:hover {
+  background: var(--secondary);
+}
+
+.sort-arrow {
+  font-size: 0.8em;
+  margin-left: 0.25rem;
+  opacity: 0.5;
+}
+
+.lens-table th.sort-asc .sort-arrow {
+  opacity: 1;
+}
+
+.lens-table th.sort-asc .sort-arrow::after {
+  content: ' ↑';
+}
+
+.lens-table th.sort-desc .sort-arrow {
+  opacity: 1;
+}
+
+.lens-table th.sort-desc .sort-arrow::after {
+  content: ' ↓';
+}
+
+.lens-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.lens-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.lens-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.lens-name {
+  font-weight: 500;
+}
+
+.lens-name a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.lens-name a:hover {
+  text-decoration: underline;
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .lens-table {
+    font-size: 0.9rem;
+  }
+  
+  .lens-table th,
+  .lens-table td {
+    padding: 0.75rem 0.5rem;
+  }
 }
 </style>
 
 <script>
-// Filter functionality
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-    
-    const filter = this.dataset.filter.toLowerCase();
-    document.querySelectorAll('.lens-card').forEach(card => {
-      if (filter === 'all') {
-        card.style.display = 'block';
+// Sortable table functionality
+(function() {
+  const table = document.getElementById('lensTable');
+  if (!table) return;
+  
+  const headers = table.querySelectorAll('th[data-sort]');
+  let currentSort = { column: null, direction: 'asc' };
+  
+  headers.forEach(header => {
+    header.addEventListener('click', function() {
+      const sortKey = this.dataset.sort;
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      
+      // Determine sort direction
+      if (currentSort.column === sortKey) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
       } else {
-        const cardType = card.dataset.type ? card.dataset.type.toLowerCase() : '';
-        // Check if filter matches type or is contained in type
-        if (cardType === filter || cardType.includes(filter)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+        currentSort.direction = 'asc';
       }
+      currentSort.column = sortKey;
+      
+      // Remove sort classes from all headers
+      headers.forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+      });
+      
+      // Add sort class to current header
+      this.classList.add('sort-' + currentSort.direction);
+      
+      // Sort rows
+      rows.sort((a, b) => {
+        let aVal, bVal;
+        
+        if (sortKey === 'title') {
+          aVal = a.querySelector('.lens-name a').textContent.trim().toLowerCase();
+          bVal = b.querySelector('.lens-name a').textContent.trim().toLowerCase();
+        } else {
+          const aCell = a.querySelector(`td[data-value]`);
+          const bCell = b.querySelector(`td[data-value]`);
+          const aCells = a.querySelectorAll('td');
+          const bCells = b.querySelectorAll('td');
+          const colIndex = Array.from(headers).indexOf(this);
+          
+          if (aCell && bCell && aCell.dataset.value && bCell.dataset.value) {
+            aVal = aCell.dataset.value;
+            bVal = bCell.dataset.value;
+          } else {
+            aVal = aCells[colIndex].textContent.trim();
+            bVal = bCells[colIndex].textContent.trim();
+          }
+        }
+        
+        // Handle empty values
+        if (aVal === '—') return 1;
+        if (bVal === '—') return -1;
+        
+        // Parse numbers for weight and aperture
+        if (sortKey === 'weight') {
+          aVal = parseInt(aVal) || 0;
+          bVal = parseInt(bVal) || 0;
+        } else if (sortKey === 'aperture') {
+          aVal = parseFloat(aVal.replace('f/', '').replace('f', '')) || 0;
+          bVal = parseFloat(bVal.replace('f/', '').replace('f', '')) || 0;
+        } else if (sortKey === 'focal_length') {
+          // Handle focal lengths like "25mm" or "12-40mm"
+          aVal = parseInt(aVal.split('-')[0]) || 0;
+          bVal = parseInt(bVal.split('-')[0]) || 0;
+        }
+        
+        // Compare
+        if (typeof aVal === 'string') {
+          return currentSort.direction === 'asc' 
+            ? aVal.localeCompare(bVal)
+            : bVal.localeCompare(aVal);
+        } else {
+          return currentSort.direction === 'asc' 
+            ? aVal - bVal
+            : bVal - aVal;
+        }
+      });
+      
+      // Re-append sorted rows
+      rows.forEach(row => tbody.appendChild(row));
     });
   });
-});
+  
+  // Filter functionality
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      const filter = this.dataset.filter.toLowerCase();
+      document.querySelectorAll('.lens-row').forEach(row => {
+        if (filter === 'all') {
+          row.style.display = '';
+        } else {
+          const rowType = row.dataset.type ? row.dataset.type.toLowerCase() : '';
+          row.style.display = (rowType === filter || rowType.includes(filter)) ? '' : 'none';
+        }
+      });
+    });
+  });
+})();
 </script>
