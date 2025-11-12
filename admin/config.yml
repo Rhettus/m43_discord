@@ -1,10 +1,8 @@
 backend:
   name: github
-  repo: Rhettus/m43_discord 
-  branch: main                      
-  open_authoring: true              # Allow users to submit PRs without direct write access
-  auth_type: "oauth"
-  client_id: "Ov23li4J5aoRIqOjQYkW"
+  repo: Rhettus/m43_discord
+  branch: main
+  open_authoring: false   # restrict to collaborators
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
