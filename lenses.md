@@ -22,7 +22,6 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
     <thead>
       <tr>
         <th data-sort="title">Lens Name <span class="sort-arrow">↕</span></th>
-        <th data-sort="manufacturer">Manufacturer <span class="sort-arrow">↕</span></th>
         <th data-sort="focal_length">Focal Length <span class="sort-arrow">↕</span></th>
         <th data-sort="aperture">Max Aperture <span class="sort-arrow">↕</span></th>
         <th data-sort="type">Type <span class="sort-arrow">↕</span></th>
@@ -30,13 +29,14 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
         <th data-sort="price_range">Price <span class="sort-arrow">↕</span></th>
         <th data-sort="magnification">Magnification <span class="sort-arrow">↕</span></th>
         <th data-sort="autofocus">Auto Focus <span class="sort-arrow">↕</span></th>
+        <th data-sort="weathersealed">Weather Sealed <span class="sort-arrow">↕</span></th>
+
       </tr>
     </thead>
     <tbody>
 {% for lens in site.lenses %}
       <tr class="lens-row" data-type="{{ lens.type | downcase }}">
         <td class="lens-name"><a href="{{ lens.url | relative_url }}">{{ lens.title }}</a></td>
-        <td>{{ lens.manufacturer | default: "—" }}</td>
         <td data-value="{{ lens.focal_length }}">{{ lens.focal_length | default: "—" }}</td>
         <td data-value="{{ lens.aperture }}">{{ lens.aperture | default: "—" }}</td>
         <td>{{ lens.type | default: "—" }}</td>
@@ -44,6 +44,7 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
         <td>{{ lens.price_range | default: "—" }}</td>
         <td>{{ lens.magnification | default: "—" }}</td>
         <td>{{ lens.autofocus | default: "Yes" }}</td>
+        <td>{{ lens.weathersealed | default: "-" }}</td>
       </tr>
 {% endfor %}
     </tbody>

@@ -17,6 +17,7 @@ tags:
 rating: 4.2
 magnification: 0.2x
 autofocus: Yes
+weathersealed: No
 ---
 
 ## Overview
