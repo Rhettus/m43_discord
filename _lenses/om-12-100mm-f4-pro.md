@@ -73,6 +73,7 @@ Many photographers report this becoming their "only lens" - it's that versatile.
 
 - [Full LensTip Review](https://www.lenstip.com/497.1-Lens_review-Olympus_M.Zuiko_ED_12-100_mm_f_4_IS_PRO.html)
 - [DPReview Field Test](https://www.dpreview.com/reviews/field-review-olympus-m-zuiko-12-100mm-f4-is-pro)
+- [Flickr Group](https://flickr.com/groups/3004267@N23/pool/)
 
 ## Where to Buy
 
