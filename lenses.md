@@ -13,6 +13,10 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
   <button class="filter-btn active" data-filter="all">All Lenses</button>
   <button class="filter-btn" data-filter="prime">Prime</button>
   <button class="filter-btn" data-filter="zoom">Zoom</button>
+  <button class="filter-btn" data-filter="weathersealed-yes">Weather Sealed</button>
+  <button class="filter-btn" data-filter="weathersealed-no">Not Weather Sealed</button>
+  <button class="filter-btn" data-filter="autofocus-yes">Autofocus</button>
+  <button class="filter-btn" data-filter="autofocus-no">Manual Focus</button>
 </div>
 
 ## All Lenses
@@ -30,12 +34,11 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
         <th data-sort="magnification">Magnification <span class="sort-arrow">↕</span></th>
         <th data-sort="autofocus">Auto Focus <span class="sort-arrow">↕</span></th>
         <th data-sort="weathersealed">Weather Sealed <span class="sort-arrow">↕</span></th>
-
       </tr>
     </thead>
     <tbody>
 {% for lens in site.lenses %}
-      <tr class="lens-row" data-type="{{ lens.type | downcase }}">
+      <tr class="lens-row" data-type="{{ lens.type | downcase }}" data-weathersealed="{% if lens.weathersealed == true or lens.weathersealed == 'Yes' %}yes{% else %}no{% endif %}" data-autofocus="{% if lens.autofocus == true or lens.autofocus == 'Yes' %}yes{% else %}no{% endif %}">
         <td class="lens-name"><a href="{{ lens.url | relative_url }}">{{ lens.title }}</a></td>
         <td data-value="{{ lens.focal_length }}">{{ lens.focal_length | default: "—" }}</td>
         <td data-value="{{ lens.aperture }}">{{ lens.aperture | default: "—" }}</td>
@@ -43,8 +46,8 @@ Browse our comprehensive collection of M43 lenses from all major manufacturers. 
         <td data-value="{{ lens.weight }}">{{ lens.weight | default: "—" }}</td>
         <td>{{ lens.price_range | default: "—" }}</td>
         <td>{{ lens.magnification | default: "—" }}</td>
-        <td>{{ lens.autofocus | default: "Yes" }}</td>
-        <td>{{ lens.weathersealed | default: "-" }}</td>
+        <td>{% if lens.autofocus == true or lens.autofocus == "Yes" %}Yes{% elsif lens.autofocus == false or lens.autofocus == "No" %}No{% else %}{{ lens.autofocus | default: "Yes" }}{% endif %}</td>
+        <td>{% if lens.weathersealed == true or lens.weathersealed == "Yes" %}Yes{% elsif lens.weathersealed == false or lens.weathersealed == "No" %}No{% else %}{{ lens.weathersealed | default: "No" }}{% endif %}</td>
       </tr>
 {% endfor %}
     </tbody>
@@ -291,6 +294,14 @@ Know a lens that should be on this list? Have sample images or a detailed review
       document.querySelectorAll('.lens-row').forEach(row => {
         if (filter === 'all') {
           row.style.display = '';
+        } else if (filter === 'weathersealed-yes') {
+          row.style.display = row.dataset.weathersealed === 'yes' ? '' : 'none';
+        } else if (filter === 'weathersealed-no') {
+          row.style.display = row.dataset.weathersealed === 'no' ? '' : 'none';
+        } else if (filter === 'autofocus-yes') {
+          row.style.display = row.dataset.autofocus === 'yes' ? '' : 'none';
+        } else if (filter === 'autofocus-no') {
+          row.style.display = row.dataset.autofocus === 'no' ? '' : 'none';
         } else {
           const rowType = row.dataset.type ? row.dataset.type.toLowerCase() : '';
           row.style.display = (rowType === filter || rowType.includes(filter)) ? '' : 'none';
