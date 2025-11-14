@@ -3,6 +3,9 @@ layout: default
 title: Home
 ---
 
+# Welcome to the M43 Reference Hub
+
+Your community-curated guide to the Micro Four Thirds system. Find lens recommendations, YouTube channels, buying guides, and everything you need to make the most of your M43 gear.
 
 ## Quick Links
 
@@ -18,11 +21,11 @@ title: Home
     <p>Discover the best M43 content creators, reviewers, and tutorial channels.</p>
     <a href="{{ '/channels' | relative_url }}" class="btn">Explore Channels</a>
   </div>
-  
+
   <div class="card">
-    <h3>📚 Guides & Resources</h3>
-    <p>Learn about camera bodies, firmware updates, accessories, and shooting techniques.</p>
-    <a href="{{ '/guides' | relative_url }}" class="btn">Read Guides</a>
+    <h3>👥 Member Portfolios</h3>
+    <p>Discover amazing work from our community photographers shooting M43 around the world.</p>
+    <a href="{{ '/portfolios' | relative_url }}" class="btn">View Portfolios</a>
   </div>
 </div>
 
