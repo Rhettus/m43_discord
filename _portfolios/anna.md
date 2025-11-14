@@ -6,5 +6,6 @@ tags:
   - wildlife
   - birds
   - nature
+  - video
 flickr: https://www.flickr.com/photos/annaphotowizard/
 ---
