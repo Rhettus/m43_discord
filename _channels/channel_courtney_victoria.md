@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@CourtneyVictoria
 subscribers: 30K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/courtney-victoria.jpg  
 tags:
   - landscape
   - tutorials

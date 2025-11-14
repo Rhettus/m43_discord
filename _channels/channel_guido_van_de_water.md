@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@GuidoVanDeWater
 subscribers: 30K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/guido-van-de-water.jpg
 tags:
   - landscape
   - nature

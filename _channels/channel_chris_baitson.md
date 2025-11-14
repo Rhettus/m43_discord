@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@ChrisBaitsonPhoto
 subscribers: 20K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/chris-baitson.jpg  
 tags:
   - landscape
   - om-system

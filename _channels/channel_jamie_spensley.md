@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@JamieSpensley
 subscribers: 5K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/jamie-spensley.jpg
 tags:
   - macro
   - insects

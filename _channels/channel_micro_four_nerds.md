@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@MicroFourNerds
 subscribers: 80K+
 upload_frequency: Multiple times per week
 language: English
+image: /assets/images/channels/micro-four-nerds.jpg
 tags:
   - reviews
   - tutorials

@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@MikeLaneFRPS
 subscribers: 12K+
 upload_frequency: Monthly
 language: English
+image: /assets/images/channels/mike-lane.jpg
 tags:
   - wildlife
   - bird-photography

@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@RobTrek
 subscribers: 45K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/rob-trek.jpg
 tags:
   - tutorials
   - menu-guides

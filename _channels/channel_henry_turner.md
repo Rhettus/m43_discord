@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@HenryTurnerphoto
 subscribers: 40K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/henry-turner.jpg
 tags:
   - landscape
   - hiking

@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@JoeMaranophotography
 subscribers: 10K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/joe-marano.jpg
 tags:
   - wildlife
   - bird-photography

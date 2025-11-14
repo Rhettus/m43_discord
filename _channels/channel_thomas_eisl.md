@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@ThomasEisl.Photography
 subscribers: 25K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/thomas-eisl.jpg
 tags:
   - reviews
   - om-system

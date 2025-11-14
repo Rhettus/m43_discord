@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@leehoyphotography
 subscribers: 8K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/lee-hoy.jpg
 tags:
   - wildlife
   - landscape

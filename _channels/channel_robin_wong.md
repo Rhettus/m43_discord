@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@robinwong
 subscribers: 50K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/robin-wong.jpg  
 tags:
   - reviews
   - street-photography

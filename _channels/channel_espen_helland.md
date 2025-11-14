@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@EspenHelland
 subscribers: 15K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/espen-helland.jpg
 tags:
   - wildlife
   - bird-photography

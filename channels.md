@@ -21,20 +21,24 @@ Discover the best YouTube channels for Micro Four Thirds content, from gear revi
 <div class="card-grid">
 {% for channel in site.channels %}
   <div class="card">
-    <h3><a href="{{ channel.url | relative_url }}">{{ channel.title }}</a></h3>
-    
-    <div class="card-meta">
-      {% if channel.subscribers %}
-      <span>👥 {{ channel.subscribers }}</span>
+    <div class="card-header-with-image">
+      {% if channel.image %}
+      <img src="{{ channel.image | relative_url }}" alt="{{ channel.title }}" class="channel-avatar">
+      {% else %}
+      <div class="channel-avatar-placeholder">{{ channel.title | slice: 0 }}</div>
       {% endif %}
-      {% if channel.upload_frequency %}
-      <span>• {{ channel.upload_frequency }}</span>
-      {% endif %}
+      <div class="card-header-text">
+        <h3><a href="{{ channel.url | relative_url }}">{{ channel.title }}</a></h3>
+        <div class="card-meta">
+          {% if channel.subscribers %}
+          <span>👥 {{ channel.subscribers }}</span>
+          {% endif %}
+          {% if channel.upload_frequency %}
+          <span>• {{ channel.upload_frequency }}</span>
+          {% endif %}
+        </div>
+      </div>
     </div>
-    
-    {% if channel.excerpt %}
-    <p>{{ channel.excerpt | strip_html | truncatewords: 30 }}</p>
-    {% endif %}
     
     {% if channel.tags %}
     <div style="margin-top: 1rem;">
@@ -90,6 +94,50 @@ Know a great M43 YouTube channel that's not listed? Join our Discord and let us 
   background: var(--primary);
   border-color: var(--primary);
   color: white;
+}
+
+.card-header-with-image {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.channel-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+
+.channel-avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.card-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-header-text h3 {
+  margin-bottom: 0.25rem;
+}
+
+.card-meta {
+  font-size: 0.9rem;
+  color: #666;
 }
 </style>
 

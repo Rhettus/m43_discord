@@ -5,6 +5,7 @@ channel_url: https://www.youtube.com/@waterfalljoe
 subscribers: 5K+
 upload_frequency: Weekly
 language: English
+image: /assets/images/channels/waterfall-joe.jpg
 tags:
   - landscape
   - waterfalls
