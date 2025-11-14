@@ -18,6 +18,8 @@ collections:
   guides:
     output: true
     permalink: /guides/:name/
+  portfolios:
+    output: false  # No individual pages needed
 
 # Navigation
 header_pages:
@@ -46,3 +48,8 @@ defaults:
       type: "guides"
     values:
       layout: "guide"
+  - scope:
+      path: ""
+      type: "portfolios"
+    values:
+      layout: null  
